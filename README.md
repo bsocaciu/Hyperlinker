@@ -1,6 +1,6 @@
 # Hyperlinker
 
-Hyperlinker is a small java app developed to help user who have to deal with opening internet pages who use a codified ending URL (Ex: http://<mysite>.com/invoices/3122502, where 3122502 is the code). 
+Hyperlinker is a small java app developed to help user who have to deal with opening internet pages who use a codified ending URL (Ex: http://my_site.com/invoices/3122502, where 3122502 is the code). 
 All it does is separing the code from the base url so it is easier to enter. Just enter the base URL in the first TextField, the code in the second one, and press OpenLink. The app will open a new page in your browser with the given URL.
 
 ##Instructions for bug reporting
