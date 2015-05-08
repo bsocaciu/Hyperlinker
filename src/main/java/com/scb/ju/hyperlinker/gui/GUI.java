@@ -22,7 +22,9 @@ public class GUI extends JFrame {
    */
   private static final long serialVersionUID = -6926505039390838934L;
 
-  private JLabel labelCheckBox = new JLabel("auto complete url schema :");
+  private JLabel labelAutoCompleteBackslashCheckBox = new JLabel("back-slash autocomplete :");
+  private JLabel labelAutoCompleteSchemaCheckBox = new JLabel("autocomplete url schema :");
+  private JCheckBox checkBoxAutoCompletBackslash = new JCheckBox();
   private JCheckBox checkBoxAutoCompleteSchema = new JCheckBox();
   private JTextField textFieldUrl = new JTextField();
   private JTextField textFieldEndingCode = new JTextField();
@@ -53,7 +55,9 @@ public class GUI extends JFrame {
     mainPanel.add(textFieldUrl);
     mainPanel.add(textFieldEndingCode);
     mainPanel.add(buttonOpenLink);
-    mainPanel.add(labelCheckBox);
+    mainPanel.add(labelAutoCompleteBackslashCheckBox);
+    mainPanel.add(checkBoxAutoCompletBackslash);
+    mainPanel.add(labelAutoCompleteSchemaCheckBox);
     mainPanel.add(checkBoxAutoCompleteSchema);
 
     this.add(mainPanel);
@@ -68,12 +72,22 @@ public class GUI extends JFrame {
    * Adds action listeners to the UI components
    */
   private void addActionListeners() {
-    buttonOpenLink.addActionListener(new ActionListener() {
+    buttonOpenLink.addActionListener(new OpenLinkListener());
+    textFieldEndingCode.addActionListener(new OpenLinkListener());
+  }
 
-      public void actionPerformed(ActionEvent e) {
-        openLink();
-      }
-    });
+  /**
+   * Action listener made to open a new browser page on action performed
+   * 
+   * @author Bogdan
+   *
+   */
+  private class OpenLinkListener implements ActionListener {
+
+    public void actionPerformed(ActionEvent e) {
+      openLink();
+    }
+
   }
 
   /**
@@ -108,7 +122,7 @@ public class GUI extends JFrame {
       parsedString.append("http://");
     }
     parsedString.append(url);
-    if (!url.endsWith("/")) {
+    if (checkBoxAutoCompletBackslash.isSelected() && !url.endsWith("/")) {
       parsedString.append("/");
     }
     parsedString.append(code);

@@ -13,6 +13,10 @@ All it does is separing the code from the base url so it is easier to enter. Jus
 - 0.0.1:
 	* uploaded the project :)
 
+- 0.0.2:
+	* added checkbox selection for backslash autocompletion
+	* added actionlistener on the code textfield --> open link on enter key-press
+	
 ##Rules (for pull requests)
 
 - Every method and class (except for getter, setters, maybe toString's ...) from this project has a javadoc and I intend to keep it that way.
